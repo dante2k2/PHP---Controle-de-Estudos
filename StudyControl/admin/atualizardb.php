@@ -1,6 +1,9 @@
 <?php
 	include "config.inc.php";
-	$busca = "SELECT * FROM disciplinas INNER JOIN notas ON disciplinas.matricula = notas.matricula AND disciplinas.idDisciplina = notas.idDisciplina INNER JOIN numfaltas ON disciplinas.matricula = numfaltas.matricula AND disciplinas.idDisciplina = numfaltas.idDisciplina order by nomeDisciplina";
+	$userID = $_REQUEST['idUsuario'];
+	
+	mysqli_set_charset($conexao, "utf8");
+	$busca = "SELECT * FROM disciplinas INNER JOIN notas ON disciplinas.matricula = notas.matricula AND disciplinas.idDisciplina = notas.idDisciplina INNER JOIN numfaltas ON disciplinas.matricula = numfaltas.matricula AND disciplinas.idDisciplina = numfaltas.idDisciplina WHERE disciplinas.matricula = $userID AND notas.matricula = $userID AND numfaltas.matricula = $userID order by nomeDisciplina";
     $todos = mysqli_query($conexao, $busca);
 
     $sql = "";

@@ -1,3 +1,9 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".nav li").removeClass("active");
+        $('#discip').addClass('active');
+    });
+</script>
 <script language='javascript'>
     var url = "";
     function passarID(urlDel) {
@@ -12,8 +18,9 @@
 </script>
 
 <?php
-
-    $busca = "SELECT * FROM disciplinas INNER JOIN notas ON disciplinas.matricula = notas.matricula AND disciplinas.idDisciplina = notas.idDisciplina INNER JOIN numfaltas ON disciplinas.matricula = numfaltas.matricula AND disciplinas.idDisciplina = numfaltas.idDisciplina order by nomeDisciplina";
+    
+    mysqli_set_charset($conexao, "utf8");
+    $busca = "SELECT * FROM disciplinas INNER JOIN notas ON disciplinas.matricula = notas.matricula AND disciplinas.idDisciplina = notas.idDisciplina INNER JOIN numfaltas ON disciplinas.matricula = numfaltas.matricula AND disciplinas.idDisciplina = numfaltas.idDisciplina WHERE disciplinas.matricula = $userID AND notas.matricula = $userID AND numfaltas.matricula = $userID order by nomeDisciplina";
     $todos = mysqli_query($conexao, $busca);
 
 ?>
@@ -40,8 +47,8 @@
     <?php while ($dados = mysqli_fetch_array($todos)) { ?>
     
     <tr>
-        <td><input style="width: 20px; display: none;" type="text" name="matricula<?=$dados['idDisciplina'];?>" value="<?=$dados['matricula'];?>"><input style="width: 20px; display: none;" type="text" name="idDisciplina<?=$dados['idDisciplina'];?>" value="<?=$dados['idDisciplina'];?>"><input class="form-control" type="text" name="nomeDisciplina<?=$dados['idDisciplina'];?>" value="<?=utf8_encode($dados['nomeDisciplina']);?>"></td>
-        <td><input class="form-control" type="text" name="nomeProfessor<?=$dados['idDisciplina'];?>" value="<?=utf8_encode($dados['nomeProfessor']);?>"></td>
+        <td><input style="width: 20px; display: none;" type="text" name="matricula<?=$dados['idDisciplina'];?>" value="<?=$dados['matricula'];?>"><input style="width: 20px; display: none;" type="text" name="idDisciplina<?=$dados['idDisciplina'];?>" value="<?=$dados['idDisciplina'];?>"><input class="form-control" type="text" name="nomeDisciplina<?=$dados['idDisciplina'];?>" value="<?=$dados['nomeDisciplina'];?>"></td>
+        <td><input class="form-control" type="text" name="nomeProfessor<?=$dados['idDisciplina'];?>" value="<?=$dados['nomeProfessor'];?>"></td>
         <td class="text-center"><input type="number" name="nota1-<?=$dados['idDisciplina'];?>" class="form-control center-block" style="width: 70px; padding: 5px;" value="<?=$dados['nota1'];?>" max="10" min="0" step="0.01"></td>
         <td class="text-center"><input type="number" name="falta1-<?=$dados['idDisciplina'];?>" class="form-control center-block" style="width: 70px;" value="<?=$dados['falta1'];?>" max="160" min="0"></td>
         <td class="text-center"><input type="number" name="nota2-<?=$dados['idDisciplina'];?>" class="form-control center-block" style="width: 70px; padding: 5px;" value="<?=$dados['nota2'];?>" max="10" min="0" step="0.01"></td>
@@ -53,6 +60,7 @@
     
     <?php } ?>
 
+    <input style="display: none;" type="number" name="idUsuario" value="<?php echo $userID; ?>">
     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">

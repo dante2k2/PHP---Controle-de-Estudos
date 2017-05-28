@@ -1,29 +1,24 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><a href="admin.php?pg=home">Inicio<span class="sr-only">(current)</span></a></li>
-    		<li><a href="admin.php?pg=materias">Disciplinas</a></li>
-		    <li><a href="admin.php?pg=adicionar">Adicionar</a></li>
-      </ul>
-      <div class="pull-right" style="margin-top: 10px; color: white; font-size: 13pt;">
+<div class="navbar-header menumob"">
+  <button style="background: #ffb301;" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menugeral" aria-expanded="false">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar menumob"></span>
+    <span class="icon-bar menumob"></span>
+    <span class="icon-bar menumob"></span>
+  </button>
+</div>
+<div class="row collapse navbar-collapse" style="margin-top: 1px; padding: 0;" id="menugeral">
+  <div class="col-xs-12">
+    <ul class="nav nav-pills nav-justified menu" role="tablist" style="padding-top: 0">
+      <li id="inic" class="active"><a href="admin.php?pg=home">Inicio</a></li>
+      <li id="discip"><a href="admin.php?pg=materias">Disciplinas</a></li>
+      <li id="adic"><a href="admin.php?pg=adicionar">Adicionar</a></li>
+      <li class="text-center">
         <form method="post" action="<?php $PHP_SELF; ?>">
-          <span style="font-weight: bold;">Usuário: </span>
-          <span style="font-weight: normal; color: #DFD"><?php echo "$usuario[0]"; ?>&emsp;</span>
-          <button class="btn btn-danger" name="sair">&ensp;Sair&ensp;</button>
+          <span style="font-weight: bold; color: #000;">Usuário: </span>
+          <span style="font-weight: normal; color: #000"><?php echo "$usuario[0]"; ?>&emsp;</span>
+          <button class="btn btn-danger" name="sair">&ensp;&ensp;Sair&ensp;&ensp;</button>
         </form>
-      </div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+      </li>
+    </ul>
+  </div>
+</div>

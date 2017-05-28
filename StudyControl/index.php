@@ -4,36 +4,38 @@
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="">
-	<meta name="Study Control Team" content="">
+	<meta name="description" content="Site para Organização de Disciplinas para Estudar">
+	<meta name="author" content="Study Control Team">
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/estilo.css" rel="stylesheet" type="text/css">
 
 	<title>Controle de Estudos</title>
 
-	<link href="css/bootstrap.css" rel="stylesheet">
-
 </head>
-<body>
+<body style="background-image: url('img/fundo.jpg');">
 
-	<div class="container" style="margin-top: 20px;">
-		<form class="form-horizontal col-xs-4 col-xs-push-4" method="post" action="login.php" target="iframe">
-			<fieldset class="text-center"><legend>Autenticação</legend>
-				<div class="form-group">
-					<label class="col-xs-2 control-label" for="login">Login</label>
-					<div class="col-xs-10">
-						<input class="form-control" type="text" name="login" id="login">
+	<div class="container-fluid">
+		<img class="logo" src="img/logo.png" >
+		<div class="row" id="painel">
+			<div class="container col-xs-12">
+				<form class="form-horizontal" method="post" action="login.php" target="iframe">
+					<h2 class="titulo text-center">Login</h2>
+					<div class="form-group">
+						<span class="pull-left"><img class="user" src="img/login-icon.png"></span>
+						<label class="col-xs-10 control-label" for="login"><input class="form-control" type="text" name="login" id="login" placeholder="Matrícula" required autofocus></label>
 					</div>
-				</div>
-				<div class="form-group">
-					<label class="col-xs-2 control-label" for="senha">Senha</label>
-					<div class="col-xs-10">
-						<input class="form-control" type="password" name="senha" id="senha">
+					<div class="form-group">
+						<span class="pull-left"><img class="user" src="img/lock.png"></span>
+						<label class="col-xs-10 control-label" for="senha"><input class="form-control" type="password" name="senha" id="senha" placeholder="Senha" required autofocus></label>
 					</div>
-				</div>
-			</fieldset>
-			<iframe name="iframe" style="width: 250px; height: 35px; border: none;" scrolling="no"></iframe>
-			<button class="btn btn-success pull-right" name="entrar">Entrar</button>
-		</form>
+					<div class="row" style="padding: 10px 20px 0 13px;">
+						<button class="btn btn-success col-xs-4 col-xs-push-2" name="entrar" style="width: 120px;">Entrar</button>
+						<a href="cadastro.php"><button style="margin-left: 15px; width: 120px;" class="btn btn-primary col-xs-4 col-xs-push-2" name="cadastro" type="button">Cadastrar</button></a>
+					</div>
+					<iframe name="iframe" class="col-xs-12" style="height: 50px; border: none;" scrolling="no"></iframe>
+				</form>
+			</div>
+		</div>
 	</div>
 
 	<script src="js/jquery-3.2.0.js"></script>

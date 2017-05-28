@@ -1,3 +1,9 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".nav li").removeClass("active");
+        $('#adic').addClass('active');
+    });
+</script>
 <h2 class="text-center">Adicionar Disciplina</h2>
 <form class="form-horizontal col-xs-8 col-xs-push-2" action="?pg=inserirdb" method="POST">
     <div class="form-group">

@@ -1,7 +1,11 @@
 <?php
 	include "config.inc.php";
+	session_start();
+	$userID = $_SESSION['login'];
+	$tela = (int)($_COOKIE['tela']*0.7);
 
-	$busca = "SELECT notas.nota1, notas.nota2, notas.nota3 FROM disciplinas INNER JOIN notas ON disciplinas.matricula = notas.matricula AND disciplinas.idDisciplina = notas.idDisciplina order by nomeDisciplina";
+	mysqli_set_charset($conexao, "utf8");
+	$busca = "SELECT notas.nota1, notas.nota2, notas.nota3 FROM disciplinas INNER JOIN notas ON disciplinas.matricula = notas.matricula AND disciplinas.idDisciplina = notas.idDisciplina WHERE notas.matricula = $userID order by nomeDisciplina";
     $todos = mysqli_query($conexao, $busca);
 
     $notas1[] = 'Estagio 1'; $notas2[] = 'Estagio 2'; $notas3[] = 'Estagio 3';
@@ -21,7 +25,7 @@
 		$notas3
 	);
 	# Cria um novo objeto do tipo PHPlot com 500px de largura x 350px de altura
-	$plot = new PHPlot(800, 350);
+	$plot = new PHPlot($tela, 350);
 	// Organiza Gráfico -----------------------------
 	$plot->SetTitle("Notas do Semestre\n\n");
 	# Precisão de uma casa decimal

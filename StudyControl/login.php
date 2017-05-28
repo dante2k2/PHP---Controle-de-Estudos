@@ -19,7 +19,7 @@
 			unset ($_SESSION['senha']);
 			session_destroy();
 			echo "<link href='css/bootstrap.css' rel='stylesheet'>";
-			echo "<h4 class='pull-right' style='color: red;'>Falha na Autenticação!</h4>";
+			echo "<body style='background-color: #18224D'><h3 style='margin-top: 10px; color: #f00;' class='text-center'>Falha na Autenticação!</h3><body>";
 		}
 
 	}
