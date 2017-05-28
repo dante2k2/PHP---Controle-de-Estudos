@@ -12,7 +12,7 @@
     </div>
     <div class="form-group"> 
         <label class="control-label" for="professor">Professor: </label>
-        <input class="form-control" id="professor" name="professor" type="text" required="required"/>
+        <input class="form-control" id="professor" name="professor" type="text"/>
     </div>
     <div class="form-group">
         <button class="btn btn-primary" name="Enviar">&ensp;Cadastrar&ensp;</button>
